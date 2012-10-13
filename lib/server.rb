@@ -13,6 +13,9 @@ module Signature
       Signature::User.all.to_json
     end
 
+    get '/:login/?:style?.png' do
+    end
+
   end
 end
 

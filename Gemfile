@@ -6,6 +6,7 @@ gem 'mongoid'
 gem 'bson_ext'
 gem 'capistrano'
 gem 'imgkit'
+gem 'octokit'
 
 group :development, :test do
   gem 'rake'

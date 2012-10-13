@@ -1,5 +1,6 @@
 require 'imgkit'
 require 'erb'
+require_relative '../config/imgkit'
 
 class Badge
 

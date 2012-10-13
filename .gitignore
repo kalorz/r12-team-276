@@ -1,3 +1,5 @@
 /.rvmrc
 /config/settings.yml
 /config/mongoid.yml
+tmp
+.idea

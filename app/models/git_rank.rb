@@ -15,6 +15,6 @@ module GitRank
   end
 end
 
-%w(janl defunkt dhh samuil konieczkow dfens godot karolsarnacki josevalim paneq).each do |name|
-  puts("%24s #{GitRank::user(name)}" % name)
-end
+#%w(janl defunkt dhh samuil konieczkow dfens godot karolsarnacki josevalim paneq).each do |name|
+#  puts("%24s #{GitRank::user(name)}" % name)
+#end

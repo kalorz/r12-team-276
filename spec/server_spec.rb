@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Signature::Server do
+describe Main do
   include Rack::Test::Methods
 
   def app
-    Signature::Server
+    Main
   end
 
   it 'just #works ' do

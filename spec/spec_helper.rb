@@ -1,4 +1,4 @@
-require './lib/signature'
+require './init'
 require 'rack/test'
 
 RSpec.configure do |config|

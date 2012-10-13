@@ -1,3 +1,5 @@
-require './lib/signature'
+require './init'
 
-run Signature::Server
+Main.set :run, false
+
+run Main

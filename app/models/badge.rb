@@ -1,10 +1,10 @@
 require 'imgkit'
 require 'erb'
-require_relative '../config/imgkit'
+require root_path('config', 'imgkit.rb')
 
 class Badge
 
-  TEMPLATE_PATH = "views/badge.html.erb"
+  TEMPLATE_PATH = File.join(Main.settings.views, 'badge.html.erb')
 
   attr_accessor :username, :xp
 

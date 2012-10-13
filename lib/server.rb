@@ -8,6 +8,9 @@ module Signature
       "#{settings.github['client_id']}"
     end
 
+    get '/:login/?:style?.png' do
+    end
+
   end
 end
 

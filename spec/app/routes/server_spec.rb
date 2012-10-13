@@ -9,8 +9,6 @@ describe Main do
 
   it 'just #works ' do
     get '/'
-    puts last_response.inspect
-
     last_response.status.should == 200
   end
 

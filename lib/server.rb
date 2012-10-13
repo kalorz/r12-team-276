@@ -1,11 +1,16 @@
 module Signature
   class Server < Sinatra::Base
     register Sinatra::ConfigFile
+    register Sinatra::RespondWith
 
     config_file '../config/settings.yml'
 
     get '/' do
-      "#{settings.github['client_id']}"
+      :ok
+    end
+
+    get '/_users'  do
+      Signature::User.all.to_json
     end
 
   end

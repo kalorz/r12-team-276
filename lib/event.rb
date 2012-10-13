@@ -1,14 +1,5 @@
 require_relative 'push_event'
 
-class Event
-  def initialize(ed)
-  end
-
-  def rank
-    1
-  end
-end
-
 def Event(event_data)
   case event_data['type']
   when 'PushEvent'

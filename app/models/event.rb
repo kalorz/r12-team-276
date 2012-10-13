@@ -7,7 +7,7 @@ class Event
   field :repo, type: Hash
 
   field :action, type: Hash # it's an user
-  field :id  
+  field :id
 
 
   def self.by_user(login, page = 1)
@@ -19,16 +19,10 @@ class Event
   end
 
   def self.all_by_user(login)
-    # we are able to rich 300 event from gh
-    # default per_page = 30
-    # so 
-    events = []
-    
-    (1..10).times do |i|
-      events + by_user(login,i)
-    end
-
-    events
-
+    [].tap do |events|
+      10.times do |i|
+        events << Event::by_user(login,i+1)
+      end
+    end.flatten
   end
 end

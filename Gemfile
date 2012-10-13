@@ -15,5 +15,7 @@ group :development, :test do
   gem 'shotgun'
   gem 'rack-test', require: "rack/test"
   gem 'rspec'
+  gem 'vcr', require: 'vcr'
+  gem 'fakeweb'
   gem 'guard-rspec'
 end

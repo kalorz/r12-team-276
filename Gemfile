@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'sinatra', require: "sinatra/base"
+gem 'sinatra-contrib'
 gem 'mongoid'
 gem 'bson_ext'
 gem 'capistrano'

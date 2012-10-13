@@ -7,6 +7,7 @@ gem 'bson_ext'
 gem 'capistrano'
 gem 'imgkit'
 gem 'octokit'
+gem 'slim'
 
 group :development, :test do
   gem 'rake'

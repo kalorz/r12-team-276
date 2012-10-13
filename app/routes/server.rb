@@ -1,7 +1,7 @@
 class Main
 
   get '/' do
-    :ok
+    slim :index
   end
 
   get '/_users'  do

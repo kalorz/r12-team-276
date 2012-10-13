@@ -17,6 +17,7 @@ describe Main do
 
   describe ' GET /users ' do
     it ' returns success ' do
+      User.should_receive(:all).and_return([])
       get "/_users"
       last_response.should be_ok
     end

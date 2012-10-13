@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/spec_helper'
+require 'spec_helper'
 
 describe Badge do
   let(:user) { mock :user, username: 'weszlem', xp: 10, level_percentage: 40, level: 4 }

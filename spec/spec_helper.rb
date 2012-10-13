@@ -1,5 +1,3 @@
-ENV['RACK_ENV'] ||= 'test'
-
 require './lib/signature'
 require 'rack/test'
 

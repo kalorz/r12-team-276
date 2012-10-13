@@ -69,7 +69,8 @@ role :db,  LINODE_SERVER_HOSTNAME, :primary => true
 
 # Add Configuration Files & Compile Assets
 after 'deploy:update_code' do
-  run "ln -s #{shared_path}/config/github.yml #{release_path}/config/"
+  run "ln -s #{shared_path}/config/settings.yml #{release_path}/config/"
+  run "ln -s #{shared_path}/config/mongoid.yml #{release_path}/config/"
 #  # Setup Configuration
 #  run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 #

@@ -1,8 +1,8 @@
 require File.dirname(__FILE__) + '/spec_helper'
-require_relative '../badge.rb'
+require_relative '../lib/badge'
 
 describe Badge do
-  let(:user) { mock :user, username: 'weszlem', xp: 10 }
+  let(:user) { mock :user, username: 'weszlem', xp: 10, level_percentage: 40, level: 4 }
   let(:badge) { described_class.new user }
   subject { badge }
 

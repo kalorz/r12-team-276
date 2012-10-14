@@ -2,10 +2,6 @@ class Main
 
   helpers do
 
-    def current_user
-      @current_user
-    end
-
     def bagde_path(user)
       "/#{user.login}.png"
     end

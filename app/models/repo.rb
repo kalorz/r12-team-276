@@ -24,7 +24,7 @@ class Repo
   end
 
   def rank
-    watchers * forks
+    Math::log((watchers + 1) * (forks + 1)).to_i
   end
 end
 

@@ -5,12 +5,7 @@ require root_path('config', 'imgkit.rb')
 class Badge
 
   TEMPLATE_PATH = File.join(Main.settings.views, 'badge.html.erb')
-  LEVEL_RANGES  = {
-    1 => 0..100,
-    2 => 100..10000,
-    3 => 10000..1000000,
-    4 => 1000000..10000000
-  }
+  LEVEL_BOUNDARIES = 1.upto(100).with_index.map {|el, idx| el * idx * 50}
 
   attr_accessor :username, :xp
 
@@ -22,23 +17,19 @@ class Badge
   end
 
   def level_percentage
-    level           = get_level(xp)
-    range           = LEVEL_RANGES[level]
-    range_beginning = range.to_a.first
-    range_beginning.zero? ? 0 : xp / range_beginning
+    (xp - prev_level_boundary(xp)) / (next_level_boundary(xp) - prev_level_boundary(xp))
   end
 
   def get_level(xp)
-    case xp
-      when LEVEL_RANGES[1] then
-        1
-      when LEVEL_RANGES[2] then
-        2
-      when LEVEL_RANGES[3] then
-        3
-      when LEVEL_RANGES[4] then
-        4
-    end
+    LEVEL_BOUNDARIES.each.with_index { |b, idx| xp > b or return idx }
+  end
+
+  def prev_level_boundary(xp)
+    LEVEL_BOUNDARIES.each_cons(2) { |prev, curr| xp > curr or return prev }
+  end
+
+  def next_level_boundary(xp)
+    LEVEL_BOUNDARIES.each.with_index { |b, idx| xp > b or return b }
   end
 
   def level

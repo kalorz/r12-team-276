@@ -8,19 +8,20 @@ describe Main do
   end
 
   it 'just #works ' do
-    get '/'
+    get '/?login=godot'
     last_response.status.should == 200
   end
 
   describe ' signatures ' do
-    it 'renders default user signature' do
-      get '/login.png'
+    it 'renders default user signature godot.png' do
 
+      get '/godot.png'
+
+      last_response.status.should == 200
       last_response.should be_ok
     end
-
-    it 'renders big user signature' do
-      get '/login/big.png'
+    it 'renders default user signature /godot' do
+      get '/godot'
 
       last_response.should be_ok
     end

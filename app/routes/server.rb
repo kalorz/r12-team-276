@@ -1,26 +1,37 @@
 class Main
 
-  get /\A\/([^.]+)?(\.png)?\z/ do |login, format|
-    login  ||= params['login']
-    format ||= params['format']
+  # Get login from URL or parameter (/?login=xxx)
+  get '/:login?' do
+    return slim(:index, layout: !request.xhr?) unless params[:login]
 
-    @current_user = begin
-      User.find_or_create_by(login: login)
-    rescue
-      raise Sinatra::NotFound
+    if params[:login].index('.')
+      @login, _, @format = params[:login].rpartition('.')
+    else
+      @login = params[:login]
     end
 
-    if format == '.png'
-      user       = User.new
-      user.login = 'ksarnacki'
-      user.score = 1000
-      badge      = Badge.new(user)
-      badge.render(true, "public/img/badges/#{user.login}.png")
-      @login = user.login
-      slim :badge_display
+    @current_user = User.get(@login)
+
+    if image?(@format)
+      render_badge_for(@current_user,@format)
     else
       slim :index, layout: !request.xhr?
     end
+  end
+
+  private
+  def image?(fmt)
+    ["png"].include?(fmt)
+  end
+
+  def render_badge_for(user, format)
+    file_name  = "public/img/badges/#{user.login}.#{format}"
+    Badge.new(user).render(true, file_name)
+
+    send_file(file_name,
+              disposition: 'inline',
+              type: 'image/png',
+              filename: File.basename(file_name))
   end
 
 end

@@ -1,9 +1,9 @@
 #badge
-  - if current_user
-    img src=bagde_path(current_user)
+  - if @current_user
+    img src=bagde_path(@current_user)
     | HTML
-    pre = "<img src=\"#{badge_url(current_user)}\" />"
+    pre = "<img src=\"#{badge_url(@current_user)}\" />"
     | Markdown
-    pre ![Gitrank](#{badge_url(current_user)})
+    pre ![Gitrank](#{badge_url(@current_user)})
     | BBcode
-    pre [img]#{badge_url(current_user)}[/img]
+    pre [img]#{badge_url(@current_user)}[/img]

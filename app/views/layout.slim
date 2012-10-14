@@ -6,7 +6,7 @@ html lang='en'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     link href='css/bootstrap.min.css' rel='stylesheet'
     link href='css/application.css' rel='stylesheet'
-  body
+  body#body
     #header
       .container
         h2.pull-right
@@ -22,11 +22,17 @@ html lang='en'
         .hr = hr
     #content
       .container
-        == slim :_form
-        == yield
+        .section
+          == slim :_form
+          == yield
         .clearfix
         .hr = hr
     #footer
-      .container == slim :_help
+      .container
+        .section
+          == slim :_help
     script src='js/zepto.min.js' type='text/javascript'
+    script src='js/spin.min.js' type='text/javascript'
+    script src='js/swfobject.js' type='text/javascript'
+    script src='js/clippy.min.js' type='text/javascript'
     script src='js/application.js' type='text/javascript'

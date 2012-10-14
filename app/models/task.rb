@@ -15,7 +15,7 @@ class Task
 
     new_task = Task.new(task.attributes)
     task.destroy
-    new_task      
+    new_task
   end
 
   def self.add_to_queue(type, payload, execute_at = Time.now)

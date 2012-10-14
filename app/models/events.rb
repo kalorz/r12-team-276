@@ -8,11 +8,11 @@ module Events
       1.upto(10) do |page_number|
         events.concat(Octokit.user_events(username, page: page_number))
         if options[:newer_than]
-          break if events.last.created_at < options[:newer_than]
+          break if Time.parse(events.last.created_at) < options[:newer_than]
         end
       end
       if options[:newer_than]
-        events.select! { |e| e.created_at > options[:newer_than] }
+        events.select! { |e| Time.parse(e.created_at) > options[:newer_than] }
       end
       events.map! { |e| Event(e) }
     end

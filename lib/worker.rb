@@ -2,20 +2,16 @@ require 'mongoid'
 require 'octokit'
 require_relative '../app/models/user'
 require_relative '../app/models/repo'
-require_relative 'task'
-
-def get_task # should pull newest task from mongodb by date
-  {
-    type: 'new_user',
-    username: 'samuil'
-  }
-end
+require_relative '../app/models/task'
+require_relative 'tasks'
 
 def perform_task
-  get_task.tap do |task|
-    case task[:type]
+  Task::get_latest.tap do |task|
+    case task['type']
     when 'new_user'
-      Task::NewUser(task[:username])
+      Tasks::NewUser(task['payload']['username'])
+    when 'update_user' # TODO
+    when 'check_pull_request' # TODO
     end
   end
 end

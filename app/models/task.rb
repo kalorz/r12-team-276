@@ -1,0 +1,20 @@
+class Task
+  include Mongoid::Document
+
+  field :type, type: String
+  field :payload, type: Hash
+
+  # Get newest task to perform, if it's timestamp is bigger than now().
+  def self.get_latest
+    {
+      'type' => 'new_user',
+      'payload' => {
+        'username' => 'samuil'
+      }
+    }
+  end
+
+  # Add a task to schedule, with a given timestamp.
+  def self.schedule(date, task)
+  end
+end

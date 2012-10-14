@@ -14,7 +14,7 @@ def perform_task
     when 'update_user' # TODO
       Tasks::UpdateUser.new(task['payload']['username']).perform
     when 'check_pull_request' # TODO
-      Tasks::CheckPullRequest.new(task['payload']).perform
+      Tasks::CheckPullRequest.new(task['payload']).perform rescue nil
     end
   end
 end
@@ -22,6 +22,5 @@ end
 Mongoid.load!('config/mongoid.yml')
 
 while true
-  print '.'
   sleep(1) unless perform_task
 end

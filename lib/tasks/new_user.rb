@@ -11,7 +11,6 @@ module Tasks
       { login: @username }.tap do |user_doc|
         user_doc[:score] = initial_score
         user_doc[:latest_event] = events.first.created_at
-        puts 'About to create user'
         User.create(user_doc)
       end
 

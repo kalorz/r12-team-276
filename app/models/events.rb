@@ -1,5 +1,6 @@
 require_relative './events/generic'
 require_relative './events/push'
+require_relative './events/pull_request'
 
 # Event factory, that creates event based on it's type.
 module Events

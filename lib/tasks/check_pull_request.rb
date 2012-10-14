@@ -3,12 +3,14 @@ module Tasks
     def initialize(payload)
       @payload = payload
       @pull_request = Octokit.pull_request(payload['repo'], payload['number'])
-      @user = User.find_by(@pull_request.user.login)
+      @user = User.find_by(login: @pull_request.user.login)
     end
 
     def perform
       if merged?
-        @user.update(score: new_score)
+        @user.update_attributes(score: new_score)
+      elsif closed?
+        return
       else
         @payload['timeout'] = @payload['timeout'] * 2
         Task.add_to_queue('check_pull_request', @payload, Time.now() + @payload['timeout'])
@@ -21,6 +23,10 @@ module Tasks
 
     def merged?
       @pull_request.merged
+    end
+
+    def closed?
+      @pull_request.state == 'closed'
     end
   end
 end

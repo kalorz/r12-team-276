@@ -10,19 +10,28 @@ class Main
       @login = params[:login]
     end
 
-    @current_user = User.find_or_create_by(login: @login)
+    @current_user = User.get(@login)
 
-    if @format == 'png'
-      user       = User.new
-      user.login = 'ksarnacki'
-      user.score = 1000
-      badge      = Badge.new(user)
-      file_name  = "public/img/badges/#{user.login}.png"
-      badge.render(true, file_name)
-      send_file(file_name, disposition: 'inline', type: 'image/png', filename: File.basename(file_name))
+    if image?(@format)
+      render_badge_for(@current_user,@format)
     else
       slim :index, layout: !request.xhr?
     end
+  end
+
+  private
+  def image?(fmt)
+    ["png"].include?(fmt)
+  end
+
+  def render_badge_for(user, format)
+    file_name  = "public/img/badges/#{user.login}.#{format}"
+    Badge.new(user).render(true, file_name)
+
+    send_file(file_name,
+              disposition: 'inline',
+              type: 'image/png',
+              filename: File.basename(file_name))
   end
 
 end

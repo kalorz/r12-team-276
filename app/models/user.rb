@@ -16,6 +16,10 @@ class User
     attr = GitHubUser::attributes_for(login)
     create(attr) if attr
   end
+  #todo use observer
+  after_create do |user|
+    Task::add_to_queue('new_user', {username: user.login})
+  end
 end
 
 module GitHubUser

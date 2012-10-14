@@ -17,10 +17,6 @@ class Badge
   end
 
   def level_percentage
-    puts 'asdasdasd'
-    puts next_level_boundary(xp)
-    puts 'hjdlksafakjhfsal'
-    puts prev_level_boundary(xp)
     (xp - prev_level_boundary(xp)) / (next_level_boundary(xp) - prev_level_boundary(xp))
   end
 

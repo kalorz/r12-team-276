@@ -4,4 +4,4 @@
 tmp
 .idea
 *.sw?
-publib/img/**
+public/img/badges/*.*

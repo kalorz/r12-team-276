@@ -9,7 +9,9 @@ class Task
 
   # Get newest task to perform, if it's timestamp is bigger than now().
   def self.pop
-    task = Task.where(:execute_at => {"$lte" => Time.now}).order_by(execute_at: 1).first
+    task = Task.where(:execute_at => {"$lte" => Time.now})
+      .order_by(execute_at: 1)
+      .first
 
     return nil unless task
 

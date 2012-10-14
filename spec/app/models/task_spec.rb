@@ -2,17 +2,16 @@ require 'spec_helper'
 
 describe Task do
 
-  it ' register task ' do
-    #Task.should_receive(:create).and_return(true)
-    Task::add_to_queue('task-type',{name: 'payload-object'}, Time.now)
-  end
-
   context ' pop taks - find and destroy ' do
     before do
       Task::destroy_all
       
       Task::add_to_queue('1',{name: 'payload-object'}, Time.now-10)
       Task::add_to_queue('2',{name: 'payload-object'}, Time.now+100)
+    end
+
+    it ' register task ' do
+      Task.count.should == 2
     end
 
     it ' remove task from db ' do

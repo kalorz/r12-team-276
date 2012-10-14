@@ -23,8 +23,4 @@ class Main
     end
   end
 
-  get '/_users' do
-    User.all.to_json
-  end
-
 end

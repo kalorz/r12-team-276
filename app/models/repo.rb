@@ -7,7 +7,7 @@ class Repo
 
   def self.lookup(fullname)
     find_or_yield(fullname) do
-      new.tap do |new_repo|
+      Repo.new.tap do |new_repo|
         Octokit.repo(fullname).tap do |response|
           new_repo.fullname = fullname
           new_repo.watchers = response.watchers

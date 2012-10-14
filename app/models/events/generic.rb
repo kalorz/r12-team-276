@@ -7,13 +7,10 @@ module Events
     field :payload, type: Hash
     field :public, type: Boolean
     field :repo, type: Hash
+    field :created_at, type: Time
 
     field :action, type: Hash # it's an user
     field :id
-
-
-    def initialize(attributes)
-    end
 
     def rank
       1

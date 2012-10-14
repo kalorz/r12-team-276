@@ -1,4 +1,4 @@
-require_relative '../event'
+require_relative '../../app/models/events'
 
 module Tasks
   class NewUser
@@ -9,6 +9,8 @@ module Tasks
     def perform
       { login: @username }.tap do |user_doc|
         user_doc[:score] = initial_score
+        user_doc[:latest_event] = events.first.created_at
+        puts 'About to create user'
         User.create(user_doc)
       end
 
@@ -20,11 +22,11 @@ module Tasks
     end
 
     def events
-      @events ||= Event::events_for(@username)
+      @events ||= Events::for(@username)
     end
   end
 end
 
-def Task::NewUser(username)
-  Task::NewUser.new(username).perform
+def Tasks::NewUser(username)
+  Tasks::NewUser.new(username).perform
 end

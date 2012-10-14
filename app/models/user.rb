@@ -6,5 +6,5 @@ class User
   field :score, type: Integer
   field :avatar_url, type: String
   field :github_url, type: String
-
+  field :latest_event, type: Time
 end

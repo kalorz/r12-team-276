@@ -6,7 +6,6 @@ html lang='en'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     link href='css/bootstrap.min.css' rel='stylesheet'
   body
-    h1 = current_user.to_json
     #header
       .container
         h1.brand
@@ -14,12 +13,7 @@ html lang='en'
           small Collaborate and level up!
     #content
       .container
-        form id='login-form' action='/' method='get'
-          input.input-xxlarge type='text' id='login' name='login' placeholder='GitHub login' value=(current_user ? current_user.login : nil)
-          button type='submit' class='btn' Go!
-        /
-          p or
-          a.btn.btn-large href='/_/auth/github' Sign in with your GitHub account
+        == slim :_form
         == yield
     #footer
       .container

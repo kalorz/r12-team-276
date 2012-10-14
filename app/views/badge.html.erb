@@ -1,0 +1,88 @@
+<html>
+<head>
+  <meta name="imgkit-width" content="280"></meta>
+  <meta name="imgkit-crop-w" content="280"></meta>
+  <title></title>
+  <style type="text/css">
+    .progressbar {
+      background-color: black;
+      border-radius: 13px; /* (height of inner div) / 2 + padding */
+      padding: 3px;
+      width: 200px;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+
+    .progressbar div {
+      background-color: #eab109;
+      width: <%= level_percentage %>%; /* Adjust with JavaScript */
+      height: 5px;
+      border-radius: 10px;
+    }
+
+    #badge {
+      width: 300px;
+      height: 70px;
+      font-family: 'DejaVu Sans Mono';
+      font-size: 20px;
+    }
+
+    #badge-image-wrapper {
+      padding: 5px;
+      padding-right: 0;
+      width: 30px;
+      height: 60px;
+      display: inline-block;
+    }
+
+    #badge-image {
+      width: 30px;
+      height: 60px;
+      background-color: white;
+      background-image: url(<%= root_path('app', 'assets', "lvl-#{level}.png") %>);
+      background-size: 100% 100%;
+      background-position: center center;
+      display: inline-block;
+    }
+
+    #badge-text {
+      display: inline-block;
+      vertical-align: top;
+      height: 70px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .username {
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .level {
+      margin-bottom: 5px;
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="badge">
+  <div id="badge-image-wrapper">
+    <div id="badge-image">
+    </div>
+  </div>
+
+  <div id="badge-text">
+    <p class="username"><%= username %></p>
+
+    <p class="level">level: <%=  level %></p>
+
+    <div class="progressbar">
+      <div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

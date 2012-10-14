@@ -1,0 +1,143 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/users/godot
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "c2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        U3VuLCAxNCBPY3QgMjAxMiAxNDo0MjozNyBHTVQ=
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "dHJhbnNmZXItZW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Y29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "c3RhdHVz":
+      - !binary |-
+        MjAwIE9L
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary |-
+        cHVibGljLCBtYXgtYWdlPTYwLCBzLW1heGFnZT02MA==
+      !binary "bGFzdC1tb2RpZmllZA==":
+      - !binary |-
+        U2F0LCAxMyBPY3QgMjAxMiAxNzoyNTo0MSBHTVQ=
+      !binary "eC1yYXRlbGltaXQtcmVtYWluaW5n":
+      - !binary |-
+        NDgxMw==
+      !binary "eC1naXRodWItbWVkaWEtdHlwZQ==":
+      - !binary |-
+        Z2l0aHViLmJldGE=
+      !binary "dmFyeQ==":
+      - !binary |-
+        QWNjZXB0
+      !binary "eC1yYXRlbGltaXQtbGltaXQ=":
+      - !binary |-
+        NTAwMA==
+      !binary "eC1jb250ZW50LXR5cGUtb3B0aW9ucw==":
+      - !binary |-
+        bm9zbmlmZg==
+      !binary "ZXRhZw==":
+      - !binary |-
+        IjNhMjRmMDYyODc0NzU3NmQyOGU4NjRmNTAxNzc3YzIzIg==
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA4VSy26DMBD8lchSb4SHGxJAqtpTv6C99IIWWMCKsS0/WiVR
+        /r1LXkou7cmWd3fGM7MH5ncGWcU+HVoWsV5LqX+EGliVRWz0k6yDlVQfvTeu
+        SpJB+DE0caunZNCd9jRTS6G2jlUH5lD28zlapPM2A0bEd3OBqNxl+niMmAmN
+        FG09COcJJY+Y1C14oRVBGC1BdUQyWPgGD7YWHT03JV8VbZa3BW+fyz4r1vmm
+        7Dcp7/ui2GQ5DUg9iBnh+stRWIRGklZvA0asoQZWqSBlxC7Qj0odtsFifCU+
+        ST43Jv/Rv3YvV7+APhpjDFuYQMQKfQLOoXd3hjzxdzHBgI4uV7b7+3I2bLni
+        aWwol5tfFo0mv1YkRWgSakOzWxirCWKaTmG2pNhjV4OnMk/Tcplly7T8yDZV
+        yitefFGPgmmOvwMrgtsvBm332AAVHs34I0Li0ZMBtbszG0nsvDUn89+8RBUb
+        SaBzeFmeFmtarvOq0Sqwih9/AdC8orCIAgAA
+    http_version: !binary |-
+      MS4x
+  recorded_at: Sun, 14 Oct 2012 13:21:51 GMT
+- request:
+    method: get
+    uri: https://api.github.com/users/godotowy
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: !binary |-
+        Tm90IEZvdW5k
+    headers:
+      !binary "c2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        U3VuLCAxNCBPY3QgMjAxMiAxNDo0Mjo1NSBHTVQ=
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "dHJhbnNmZXItZW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Y29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "c3RhdHVz":
+      - !binary |-
+        NDA0IE5vdCBGb3VuZA==
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary ""
+      !binary "eC1yYXRlbGltaXQtbGltaXQ=":
+      - !binary |-
+        NTAwMA==
+      !binary "eC1jb250ZW50LXR5cGUtb3B0aW9ucw==":
+      - !binary |-
+        bm9zbmlmZg==
+      !binary "eC1naXRodWItbWVkaWEtdHlwZQ==":
+      - !binary |-
+        Z2l0aHViLmJldGE=
+      !binary "eC1yYXRlbGltaXQtcmVtYWluaW5n":
+      - !binary |-
+        NDgxMg==
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6tWyk0tLk5MT1WyUvLLL1Fwyy/NS1GqBQB8+Ys1FwAAAA==
+    http_version: !binary |-
+      MS4x
+  recorded_at: Sun, 14 Oct 2012 13:22:09 GMT
+recorded_with: VCR 2.2.5

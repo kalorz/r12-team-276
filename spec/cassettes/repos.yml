@@ -1,0 +1,147 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/samuil/sxrb
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "c2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        U3VuLCAxNCBPY3QgMjAxMiAxMToyMTozMiBHTVQ=
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "dHJhbnNmZXItZW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Y29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "c3RhdHVz":
+      - !binary |-
+        MjAwIE9L
+      !binary "eC1yYXRlbGltaXQtbGltaXQ=":
+      - !binary |-
+        NTAwMA==
+      !binary "eC1jb250ZW50LXR5cGUtb3B0aW9ucw==":
+      - !binary |-
+        bm9zbmlmZg==
+      !binary "bGFzdC1tb2RpZmllZA==":
+      - !binary |-
+        TW9uLCAwOCBPY3QgMjAxMiAxNjozMzozNCBHTVQ=
+      !binary "eC1yYXRlbGltaXQtcmVtYWluaW5n":
+      - !binary |-
+        NDk3MQ==
+      !binary "ZXRhZw==":
+      - !binary |-
+        IjE1NGUwNmUxYjE0NWZlYjBlZjRjNmViY2YxNTdmYjJkIg==
+      !binary "eC1naXRodWItbWVkaWEtdHlwZQ==":
+      - !binary |-
+        Z2l0aHViLmJldGE=
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary |-
+        cHVibGljLCBzLW1heGFnZT02MCwgbWF4LWFnZT02MA==
+      !binary "dmFyeQ==":
+      - !binary |-
+        QWNjZXB0
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA5VTy66bMBD9lchSdwkY8whFqtpVV+2mvYuqGzSAASvGID9u
+        2l7l3zsOISF93N6uMNb4nJkz5zyRHkx5FAdBCqsd35Jx4qoUxjhuynp0ypKC
+        bUkphToYUjwRw2Xrv73m+CW9tZMpwhAmEXTC9q4K6nEINZ9GExoYnJCh+aYr
+        cjoh9lFx7R//L5wzXC9wZ6ROwyNY0KVosIkmoUneRjVt2esqa2nCsozWSZZG
+        +T7K44psiRw7obB0bgkvLu+dlqspDK+d5sGCfh5lLgz/xfG2eXPVgiV5wAM4
+        wAAiUNyGYAy3ZiXQK/ZeDNBxg4eFbX3e+Yl3CaPBpDrs9r7NX8S+U2dLvCQs
+        T7N9jkK5qQHLmxJwj4TRiO0iuqP5Q5QVcVzEyVcEb52UpYKBX/WZV3ZnhrMN
+        Jmf6v4PFHmwQWo+6PDesEBhvwFiuy0qDqnukmP8976i9p+iW9OPAJ5RjeSJB
+        de78Tz656vtSuxgSX9RyVHxmuXpw5b+V87zqCGAe1YvKsRQ3dsTWVmwIcXmM
+        J3T780ymvxW/u5UWf2hK/MAZU5agBJjDOXZLEv1Ng5GRIzQo0xxPrxkpWpAG
+        s9pwU2sxWTF6a3+2msMgVLf58vHDRqNuG6FQ+RZqjlMdwdY9xgj5UD4svbcF
+        zXc0fojSIkmLeO83+aznfg846naxkI/7jW+REVl7O8iXLmHSAhOO6lxm9a5O
+        GeY5zk8/ATJclyi2BAAA
+    http_version: !binary |-
+      MS4x
+  recorded_at: Sun, 14 Oct 2012 10:00:46 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/samuil/sxrbxxxxxx
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: !binary |-
+        Tm90IEZvdW5k
+    headers:
+      !binary "c2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        U3VuLCAxNCBPY3QgMjAxMiAxMToyMzoxMSBHTVQ=
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "dHJhbnNmZXItZW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Y29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "c3RhdHVz":
+      - !binary |-
+        NDA0IE5vdCBGb3VuZA==
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary ""
+      !binary "eC1jb250ZW50LXR5cGUtb3B0aW9ucw==":
+      - !binary |-
+        bm9zbmlmZg==
+      !binary "eC1yYXRlbGltaXQtbGltaXQ=":
+      - !binary |-
+        NTAwMA==
+      !binary "eC1yYXRlbGltaXQtcmVtYWluaW5n":
+      - !binary |-
+        NDk3MA==
+      !binary "eC1naXRodWItbWVkaWEtdHlwZQ==":
+      - !binary |-
+        Z2l0aHViLmJldGE=
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6tWyk0tLk5MT1WyUvLLL1Fwyy/NS1GqBQB8+Ys1FwAAAA==
+    http_version: !binary |-
+      MS4x
+  recorded_at: Sun, 14 Oct 2012 10:02:25 GMT
+recorded_with: VCR 2.2.5

@@ -16,6 +16,7 @@ describe Main do
     it 'renders default user signature' do
       get '/godot.png'
 
+      last_response.status.should == 200
       last_response.should be_ok
     end
     it 'renders default user signature' do

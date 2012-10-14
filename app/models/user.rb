@@ -22,7 +22,7 @@ class User
     Task::add_to_queue('new_user', {username: user.login})
   end
   after_save do |user|
-    Badge.new(user).render(true, "public/img/badges/#{user.login}.png")
+    Badge.new(user).render(true, root_path('public', 'system', 'badges', "#{user.login}.png"))
   end
 end
 

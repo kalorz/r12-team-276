@@ -1,7 +1,9 @@
-form
-  label for='login' Enter your GitHub username
-  .input-append
-    input type='text' id='login' name='login'
-    button type='submit' class='btn' Go!
-p or
-a.btn.btn-large href='/_/auth/github' Sign in with your GitHub account
+#badge
+  - if current_user
+    img src=bagde_path(current_user)
+    | HTML
+    pre = "<img src=\"#{badge_url(current_user)}\" />"
+    | Markdown
+    pre ![Gitrank](#{badge_url(current_user)})
+    | BBcode
+    pre [img]#{badge_url(current_user)}[/img]

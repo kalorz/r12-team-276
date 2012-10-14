@@ -3,13 +3,24 @@ class Main
   helpers do
 
     def current_user
-      @current_user ||= session[:user_id] && User.find(session[:user_id])
-    rescue
-      session[:user_id] = nil
+      @current_user
     end
 
-    def partial(template, locals = {})
-      slim(template, {layout: false}, locals)
+    def bagde_path(user)
+      "/#{user.login}.png"
+    end
+
+    def badge_url(user)
+      "#{full_host}#{bagde_path(user)}"
+    end
+
+    def full_host
+      uri = URI.parse(request.url.gsub(/\?.*$/,''))
+      uri.path = ''
+      uri.query = nil
+      #sometimes the url is actually showing http inside rails because the other layers (like nginx) have handled the ssl termination.
+      uri.scheme = 'https' if(request.env['HTTP_X_FORWARDED_PROTO'] == 'https')
+      uri.to_s
     end
 
     def badge_path_for(login, format='png')

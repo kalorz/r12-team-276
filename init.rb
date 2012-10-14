@@ -34,7 +34,7 @@ class Main < Sinatra::Base
 
   use OmniAuth::Builder do
     provider :github, Main.settings.github['client_id'], Main.settings.github['client_secret'],
-             provider_ignores_state: true, scope: 'public'
+             provider_ignores_state: true, scope: 'public', path_prefix: '/_/auth', callback_path: '/_/auth/callback'
   end
 
 end

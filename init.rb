@@ -25,6 +25,17 @@ class Main < Sinatra::Base
   set :run,      Proc.new { $0 == app_file }
   set :static,   true
   set :views,    root_path('app', 'views')
+  set :sessions, true
+
+  if development?
+    # Needed for shotgun, see http://stackoverflow.com/questions/5631862/sinatra-and-session-variables-which-are-not-being-set
+    set :session_secret, '652af8389d1f5a20b07adf093e1261360da0741e7022e444560dbc73b9a715333008740487cfc6502c018a1416b1d93bd79118f44c3974fcbc62bc74f014edd5'
+  end
+
+  use OmniAuth::Builder do
+    provider :github, Main.settings.github['client_id'], Main.settings.github['client_secret'],
+             provider_ignores_state: true, scope: 'public'
+  end
 
 end
 
@@ -33,4 +44,3 @@ Dir[root_path('app/**/*.rb')].each do |file|
 end
 
 Main.run! if Main.run?
-

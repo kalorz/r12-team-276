@@ -2,24 +2,25 @@ class Repo
   include Mongoid::Document
 
   field :fullname, type: String
-  field :watchers, type: Integer
-  field :forks, type: Integer
+  field :watchers, type: Integer, default: 0
+  field :forks, type: Integer, default: 0
 
   def self.lookup(fullname)
     find_or_yield(fullname) do
-      Repo.new.tap do |new_repo|
-        Octokit.repo(fullname).tap do |response|
-          new_repo.fullname = fullname
-          new_repo.watchers = response.watchers
-          new_repo.forks = response.forks
-        end
-        new_repo.save
-      end
+      Repo.create(fetch_repo_attrs(fullname))
     end
   end
 
   def self.find_or_yield(fullname)
     where(fullname: fullname).first or yield
+  end
+
+  def self.fetch_repo_attrs(fullname)
+    Octokit.repo(fullname).slice(:watchers,:forks).tap do |attr|
+      attr[:fullname] = fullname
+    end
+  rescue Octokit::NotFound
+    Repo.new(fullname: fullname).attributes
   end
 
   def rank

@@ -1,7 +1,7 @@
 module Events
   class Push
     def initialize(event_data)
-      @repo = Repo.find(event_data['repo']['name'])
+      @repo = Repo.lookup(event_data['repo']['name'])
       @commit_count = event_data['payload']['size']
     end
 

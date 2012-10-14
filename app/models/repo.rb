@@ -22,9 +22,6 @@ class Repo
     where(fullname: fullname).first or yield
   end
 
-  def initialize
-  end
-
   def rank
     watchers * forks
   end

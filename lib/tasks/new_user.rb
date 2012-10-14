@@ -1,4 +1,5 @@
 require_relative '../../app/models/events'
+require_relative '../../app/models/task'
 
 module Tasks
   class NewUser
@@ -14,7 +15,7 @@ module Tasks
         User.create(user_doc)
       end
 
-      Task.schedule(execute_at: Time.now() + 86400, type: 'update_user', payload: {username: @username})
+      Task.add_to_queue('update_user', {username: @username}, Time.now() + 86400)
     end
 
     def initial_score

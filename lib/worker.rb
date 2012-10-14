@@ -11,6 +11,7 @@ def perform_task
     when 'new_user'
       Tasks::NewUser(task['payload']['username'])
     when 'update_user' # TODO
+      Tasks::UpdateUser(task['payload']['username'])
     when 'check_pull_request' # TODO
     end
   end
@@ -18,4 +19,5 @@ end
 
 Mongoid.load!('config/mongoid.yml')
 
+#puts Events.for('samuil')
 perform_task

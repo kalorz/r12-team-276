@@ -1,9 +1,16 @@
 #badge
   - if @current_user
     img src=bagde_path(@current_user)
-    | HTML
-    pre = "<img src=\"#{badge_url(@current_user)}\" />"
-    | Markdown
-    pre ![Gitrank](#{badge_url(@current_user)})
-    | BBcode
-    pre [img]#{badge_url(@current_user)}[/img]
+    .section
+      .red HTML
+      pre
+        .clippy-wrap: span.clippy.hide = "<img src=\"#{badge_url(@current_user)}\" />"
+        = "<img src=\"#{badge_url(@current_user)}\" />"
+      .green Markdown
+      pre
+        .clippy-wrap: span.clippy.hide ![Gitrank](#{badge_url(@current_user)})
+        | ![Gitrank](#{badge_url(@current_user)})
+      .blue BBcode
+      pre
+        .clippy-wrap: span.clippy.hide [img]#{badge_url(@current_user)}[/img]
+        | [img]#{badge_url(@current_user)}[/img]

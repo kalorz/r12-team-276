@@ -13,7 +13,7 @@ class Main
     @current_user = User.get(@login)
 
     if image?(@format)
-      render_badge_for(@current_user,@format)
+      send_badge_for(@current_user)
     else
       slim :index, layout: !request.xhr?
     end
@@ -24,9 +24,8 @@ class Main
     ["png"].include?(fmt)
   end
 
-  def render_badge_for(user, format)
+  def send_badge_for(user, format='png')
     file_name  = "public/img/badges/#{user.login}.#{format}"
-    Badge.new(user).render(true, file_name)
 
     send_file(file_name,
               disposition: 'inline',

@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Main do
   include Rack::Test::Methods
 
+  use_vcr_cassette :users
+
   def app
     Main
   end
@@ -13,6 +15,10 @@ describe Main do
   end
 
   describe ' signatures ' do
+    before do
+      User.destroy_all
+      Task.destroy_all
+    end
     it 'renders default user signature godot.png' do
 
       get '/godot.png'

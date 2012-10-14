@@ -18,6 +18,6 @@ group :development, :test do
   gem 'rack-test', require: "rack/test"
   gem 'rspec'
   gem 'vcr', require: 'vcr'
-  gem 'fakeweb'
+  gem 'webmock'
   gem 'guard-rspec'
 end

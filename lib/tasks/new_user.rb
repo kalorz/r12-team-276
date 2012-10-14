@@ -1,6 +1,6 @@
 require_relative '../event'
 
-module Task
+module Tasks
   class NewUser
     def initialize(username)
       @username = username
@@ -11,14 +11,16 @@ module Task
         user_doc[:score] = initial_score
         User.create(user_doc)
       end
+
+      Task.schedule(,type: 'update_user')
     end
 
     def initial_score
-      1.upto(2).
-        flat_map { |n| Octokit.user_events(@username, page: n) }.
-        reduce(0) { |score, event|
-          score + Event(event).rank
-        }
+      events.reduce(0) { |score, event| score + event.rank }
+    end
+
+    def events
+      @events ||= Event::events_for(@username)
     end
   end
 end

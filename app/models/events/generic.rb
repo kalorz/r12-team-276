@@ -1,4 +1,5 @@
-class Event
+class Generic
+  # Do we really need events to be kept in mongo?
   include Mongoid::Document
 
   field :type, type: String
@@ -24,5 +25,12 @@ class Event
         events << Event::by_user(login,i+1)
       end
     end.flatten
+  end
+
+  def initialize(ed)
+  end
+
+  def rank
+    1
   end
 end

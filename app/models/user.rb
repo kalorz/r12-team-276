@@ -13,7 +13,8 @@ class User
   def self.get(login)
     find_by(login: login)
   rescue Mongoid::Errors::DocumentNotFound
-    create( GitHubUser::attributes_for(login) )
+    attr = GitHubUser::attributes_for(login)
+    create(attr) if attr
   end
 end
 

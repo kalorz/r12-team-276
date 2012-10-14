@@ -10,11 +10,11 @@ def perform_task
     return false unless task
     case task['type']
     when 'new_user'
-      Tasks::NewUser(task['payload']['username'])
+      Tasks::NewUser.new(task['payload']['username']).perform
     when 'update_user' # TODO
-      Tasks::UpdateUser(task['payload']['username'])
+      Tasks::UpdateUser.new(task['payload']['username']).perform
     when 'check_pull_request' # TODO
-      Tasks::CheckPullRequest(task['payload'])
+      Tasks::CheckPullRequest.new(task['payload']).perform
     end
   end
 end

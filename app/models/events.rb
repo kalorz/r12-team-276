@@ -23,6 +23,8 @@ def Event(event_data)
   case event_data['type']
   when 'PushEvent'
     Events::Push.new(event_data)
+  when 'PullRequestEvent'
+    Events::PullRequest.new(event_data)
   else
     Events::Generic.new(event_data)
   end

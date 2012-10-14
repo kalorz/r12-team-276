@@ -1,13 +1,11 @@
-Events = Module.new
-
 require_relative './events/generic'
 require_relative './events/push'
 #
 # Event factory, that creates event based on it's type.
-module Event
-  def self.events_for(username)
+module Events
+  def self.for(username)
     1.upto(10).
-      flat_map { |n| Octokit.user_events(@username, page: n) }.
+      flat_map { |n| Octokit.user_events(username, page: n) }.
       map { |e| Event(e) }
   end
 end

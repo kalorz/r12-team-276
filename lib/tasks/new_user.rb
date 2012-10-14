@@ -8,13 +8,15 @@ module Tasks
     end
 
     def perform
-      { login: @username }.tap do |user_doc|
-        user_doc[:score] = initial_score
-        user_doc[:latest_event] = events.first.created_at
-        User.create(user_doc)
-      end
+      User.find_by(login:@username)
+        .update_attributes(latest_event: latest_event, score: initial_score)
 
       Task.add_to_queue('update_user', {username: @username}, Time.now() + 86400)
+    end
+
+    private
+    def latest_event
+      events.first && events.first.created_at
     end
 
     def initial_score

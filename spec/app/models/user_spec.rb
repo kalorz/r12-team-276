@@ -9,7 +9,6 @@ describe User do
 end
 
 
-
 describe GitHubUser do
   use_vcr_cassette :users
   it 'creates valid user representation in local storage' do

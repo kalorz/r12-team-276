@@ -12,14 +12,6 @@ describe Main do
     last_response.status.should == 200
   end
 
-  describe ' GET /users ' do
-    it ' returns success ' do
-      User.should_receive(:all).and_return([])
-      get "/_users"
-      last_response.should be_ok
-    end
-  end
-
   describe ' signatures ' do
     it 'renders default user signature' do
       get '/login.png'

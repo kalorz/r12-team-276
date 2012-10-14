@@ -26,5 +26,7 @@ module GitHubUser
       github_url: gh_user.html_url,
       avatar_url: gh_user.avatar_url
     }
+  rescue Octokit::NotFound
+    nil
   end
 end

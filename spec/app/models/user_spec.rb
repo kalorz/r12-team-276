@@ -18,7 +18,7 @@ describe GitHubUser do
 
   it 'raises error if user does not exist' do
     expect {
-      User.get('godotowy')
-    }.to raise_error(Octokit::NotFound)
+      User.get('godotowy').should_not be
+    }.to_not raise_error()
   end
 end

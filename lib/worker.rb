@@ -23,4 +23,6 @@ Mongoid.load!('config/mongoid.yml')
 
 while true
   sleep(1) unless perform_task
+rescue
+  print '*'
 end

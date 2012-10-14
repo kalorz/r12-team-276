@@ -12,7 +12,7 @@ module Tasks
         User.create(user_doc)
       end
 
-      Task.schedule(,type: 'update_user')
+      Task.schedule(execute_at: Time.now() + 86400, type: 'update_user', payload: {username: @username})
     end
 
     def initial_score

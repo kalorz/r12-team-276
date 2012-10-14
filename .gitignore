@@ -4,3 +4,4 @@
 tmp
 .idea
 *.sw?
+public/img/badges/*.*

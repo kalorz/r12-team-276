@@ -43,6 +43,10 @@ class Badge
     get_level(@xp)
   end
 
+  def levelname
+    LEVEL_NAMES[level]
+  end
+
   def get_template
     File.read(TEMPLATE_PATH)
   end

@@ -7,7 +7,14 @@ class Badge
   TEMPLATE_PATH = File.join(Main.settings.views, 'badge.html.erb')
 
   LEVEL_NAMES = YAML::load(File.open(root_path('config','badges_maya.yml')))
-  LEVEL_BOUNDARIES = 1.upto(LEVEL_NAMES.size).with_index.map {|el, idx| el * idx * 50}
+  LEVEL_BOUNDARIES = 1.upto(100).with_index.map {|el, idx| el * idx * 50}
+  LEVEL_NAMES = ['Novice I', 'Novice II', 'Novice III', 'Novice IV', 'Novice V',
+                 'Scribbler I', 'Scribbler II', 'Scribbler III', 'Scribbler IV', 'Scribbler V',
+                 'Codetypist I', 'Codetypist II', 'Codetypist III', 'Codetypist IV', 'Codetypist V',
+                 'Scribe I', 'Scribe II', 'Scribe III', 'Scribe IV', 'Scribe V',
+                 'Craftsman I', 'Craftsman II', 'Craftsman III', 'Craftsman IV', 'Craftsman V',
+                 'Elder I', 'Elder II', 'Elder III', 'Elder IV', 'Elder V',
+                 'Code marshall I', 'Code marshall II', 'Code marshall III', 'Code marshall IV', 'Code marshall V']
 
   attr_accessor :username, :xp, :user
 
@@ -40,7 +47,7 @@ class Badge
 
   def levelname
     return 'Please wait while we process your request...' if xp == 0
-    "#{LEVEL_NAMES[level]} - [#{level}/#{LEVEL_NAMES.size}]"
+    "#{LEVEL_NAMES[level]} (#{level})"
   end
 
   def get_template

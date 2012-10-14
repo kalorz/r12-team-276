@@ -18,4 +18,9 @@ task :reset do
   puts 'deleting badges'
   puts 'todo'
 end
-  
+
+task :badge do
+  Badge.new(User.new(login:'godot',score:1000)).render(true,"./tmp/img.png")
+end
+
+

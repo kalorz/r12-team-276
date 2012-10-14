@@ -9,6 +9,7 @@ def root_path(*args)
   File.join(ROOT_DIR, *args)
 end
 
+require 'securerandom'
 require 'bundler/setup'
 Bundler::require(:default)
 

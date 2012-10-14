@@ -1,3 +1,3 @@
-form id='login-form' action='/' method='get'
-  input.input-xxlarge type='text' id='login' name='login' placeholder='GitHub Login' value=@current_user.try(:login)
+form#login-form action='/' method='get'
+  input.input-block-level#login type='text' name='login' placeholder='Enter your GitHub Login' autofocus=true autocomplete='off' value=@current_user.try(:login)
   button type='submit' class='btn' Go!

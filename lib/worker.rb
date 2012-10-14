@@ -1,8 +1,4 @@
-require 'mongoid'
-require 'octokit'
-require_relative '../app/models/user'
-require_relative '../app/models/repo'
-require_relative '../app/models/task'
+require './init'
 require_relative 'tasks'
 
 def perform_task
@@ -19,10 +15,6 @@ def perform_task
   end
 end
 
-Mongoid.load!('config/mongoid.yml')
-
 while true
   sleep(1) unless perform_task
-rescue
-  print '*'
 end

@@ -12,6 +12,9 @@ end
 require 'bundler/setup'
 Bundler::require(:default)
 
+require 'securerandom'
+require './lib/core_ext'
+
 Mongoid.load! root_path('config', 'mongoid.yml')
 
 class Main < Sinatra::Base

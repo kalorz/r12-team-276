@@ -2,15 +2,55 @@ require 'spec_helper'
 
 describe Badge do
 
+  subject {
+    Badge.new(user)
+  }
+
   let(:user) {
     User.new login:'me'
   }
   
   it ' raises ZeroDivisionError ' do
     expect {
-      Badge.new(user).level_percentage
+      subject.level_percentage
     }.to_not raise_error(ZeroDivisionError)
   end
 
+  it ' level_percentage return valid value ' do
+    subject.level_percentage.should == -10
+  end
+  it ' level_percentage return valid value ' do
+    subject.user,score = 5432
+    subject.level_percentage.should == -10
+  end
+
+
+  it ' should find correct upper level boundary in cornercase ' do
+    subject.next_level_boundary(0).should == 100
+  end
+
+  it ' should find correct lower level boundary in cornercase ' do
+    subject.prev_level_boundary(0).should == 0
+  end
+
+  it ' should find correct upper level boundary between levels' do
+    subject.next_level_boundary(100).should == 300
+  end
+
+  it ' should find correct lower level boundary between levels ' do
+    subject.prev_level_boundary(100).should == 100
+  end
+
+  it ' should find correct upper level boundary ' do
+    subject.next_level_boundary(7).should == 100
+  end
+
+  it ' should find correct lower first level boundary ' do
+    subject.prev_level_boundary(7).should == 0
+  end
+
+  it ' should find correct lower second level boundary ' do
+    subject.prev_level_boundary(150).should == 100
+  end
   
 end

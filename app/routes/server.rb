@@ -2,7 +2,7 @@ class Main
 
   # Get login from URL or parameter (/?login=xxx)
   get '/:login?' do
-    return slim(:index, layout: !request.xhr?) unless params[:login]
+    return slim(:index, layout: !request.xhr?) unless params[:login] && !params[:login].blank?
 
     if params[:login].index('.')
       @login, _, @format = params[:login].rpartition('.')
@@ -13,7 +13,7 @@ class Main
     @current_user = User.get(@login)
 
     if image?(@format)
-      render_badge_for(@current_user,@format)
+      send_badge_for(@current_user)
     else
       slim :index, layout: !request.xhr?
     end
@@ -24,14 +24,13 @@ class Main
     ["png"].include?(fmt)
   end
 
-  def render_badge_for(user, format)
-    file_name  = "public/img/badges/#{user.login}.#{format}"
-    Badge.new(user).render(true, file_name)
+  def send_badge_for(user, format = 'png')
+    file_name = root_path('public', 'system', 'badges', "#{user.login}.#{format}")
 
     send_file(file_name,
               disposition: 'inline',
-              type: 'image/png',
-              filename: File.basename(file_name))
+              type:        'image/png',
+              filename:    File.basename(file_name))
   end
 
 end

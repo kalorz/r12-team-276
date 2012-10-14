@@ -5,9 +5,16 @@ require root_path('config', 'imgkit.rb')
 class Badge
 
   TEMPLATE_PATH = File.join(Main.settings.views, 'badge.html.erb')
-  LEVEL_BOUNDARIES = 1.upto(100).with_index.map {|el, idx| el * idx * 50}
+  LEVEL_BOUNDARIES = 1.upto(35).with_index.map {|el, idx| el * idx * 50}
+  LEVEL_NAMES = ['Novice I', 'Novice II', 'Novice III', 'Novice IV', 'Novice V',
+                 'Scribbler I', 'Scribbler II', 'Scribbler III', 'Scribbler IV', 'Scribbler V',
+                 'Codetypist I', 'Codetypist II', 'Codetypist III', 'Codetypist IV', 'Codetypist V',
+                 'Scribe I', 'Scribe II', 'Scribe III', 'Scribe IV', 'Scribe V',
+                 'Craftsman I', 'Craftsman II', 'Craftsman III', 'Craftsman IV', 'Craftsman V',
+                 'Elder I', 'Elder II', 'Elder III', 'Elder IV', 'Elder V',
+                 'Code marshall I', 'Code marshall II', 'Code marshall III', 'Code marshall IV', 'Code marshall V']
 
-  attr_accessor :username, :xp
+  attr_accessor :username, :xp, :user
 
   def initialize(user, options={ })
     @user     = user
@@ -17,7 +24,7 @@ class Badge
   end
 
   def level_percentage
-    (xp - prev_level_boundary(xp)) / (next_level_boundary(xp) - prev_level_boundary(xp))
+    100.0 * (xp - prev_level_boundary(xp)) / (next_level_boundary(xp) - prev_level_boundary(xp))
   end
 
   def get_level(xp)
@@ -25,15 +32,20 @@ class Badge
   end
 
   def prev_level_boundary(xp)
-    LEVEL_BOUNDARIES.each_cons(2) { |prev, curr| xp > curr or return prev }
+    LEVEL_BOUNDARIES.each_cons(2) { |prev, curr| return prev if xp >= prev and xp < curr  }
   end
 
   def next_level_boundary(xp)
-    LEVEL_BOUNDARIES.each.with_index { |b, idx| xp > b or return b }
+    LEVEL_BOUNDARIES.find { |exp_to_level| xp < exp_to_level }
   end
 
   def level
     get_level(@xp)
+  end
+
+  def levelname
+    return 'Please wait while we process your request...' if xp == 0
+    LEVEL_NAMES[level]
   end
 
   def get_template

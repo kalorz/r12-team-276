@@ -23,6 +23,12 @@ class Main
       "img/badges/#{login}.#{format}"
     end
 
+    ALPHA = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
+
+    def hr(length = 256)
+      (0...length).map{ ALPHA[rand(ALPHA.length)] }.join
+    end
+
   end
 
 end

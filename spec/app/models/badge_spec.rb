@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Badge do
-  let(:user) { mock :user, username: 'weszlem', xp: 10, level_percentage: 40, level: 4 }
+  let(:user) { mock :user, login: 'weszlem', score: 10, level_percentage: 40, level: 4 }
   let(:badge) { described_class.new user }
   subject { badge }
 
   context 'with user' do
-    let(:user) { mock :user, username: 'weszlem', xp: nil }
+    let(:user) { mock :user, login: 'weszlem', score: nil }
     subject { described_class.new user }
 
     its(:xp) { should be_zero }

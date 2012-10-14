@@ -25,7 +25,7 @@ class Badge
     level           = get_level(xp)
     range           = LEVEL_RANGES[level]
     range_beginning = range.to_a.first
-    xp / range_beginning
+    range_beginning.zero? ? 0 : xp / range_beginning
   end
 
   def get_level(xp)

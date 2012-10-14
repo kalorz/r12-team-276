@@ -39,7 +39,7 @@
       width: 30px;
       height: 60px;
       background-color: white;
-      background-image: url("/Users/mgajewski/Programming/SideProjects/r12-team-276/tmp/assets/lvl-<%= level %>.png");
+      background-image: url(<%= root_path('app', 'assets', "lvl-#{level}.png") %>);
       background-size: 100% 100%;
       background-position: center center;
       display: inline-block;

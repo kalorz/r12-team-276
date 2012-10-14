@@ -1,4 +1,4 @@
-require_relative 'lib/badge'
+require './init'
 
 class User
   attr_accessor :username, :xp

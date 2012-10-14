@@ -16,5 +16,9 @@ def perform_task
 end
 
 while true
-  sleep(1) unless perform_task
+  begin
+    sleep(1) unless perform_task
+  rescue
+    puts '*'
+  end
 end

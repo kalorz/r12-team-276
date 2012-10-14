@@ -113,3 +113,12 @@ ol {
     height: 38px;
     padding: 4px 4px;
 }
+
+.badge {
+    text-align: center;
+}
+
+.badge img {
+    padding: 1px;
+    border: 1px solid #eee;
+}

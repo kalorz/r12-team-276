@@ -6,7 +6,7 @@ class Badge
 
   TEMPLATE_PATH = File.join(Main.settings.views, 'badge.html.erb')
   LEVEL_BOUNDARIES = 1.upto(35).with_index.map {|el, idx| el * idx * 50}
-  LEVEL_NAMES = ['under-construction', 'Novice I', 'Novice II', 'Novice III', 'Novice IV', 'Novice V',
+  LEVEL_NAMES = ['Novice I', 'Novice II', 'Novice III', 'Novice IV', 'Novice V',
                  'Scribbler I', 'Scribbler II', 'Scribbler III', 'Scribbler IV', 'Scribbler V',
                  'Codetypist I', 'Codetypist II', 'Codetypist III', 'Codetypist IV', 'Codetypist V',
                  'Scribe I', 'Scribe II', 'Scribe III', 'Scribe IV', 'Scribe V',
@@ -44,6 +44,7 @@ class Badge
   end
 
   def levelname
+    return 'Please wait while we process your request...' if xp == 0
     LEVEL_NAMES[level]
   end
 

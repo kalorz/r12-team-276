@@ -9,9 +9,11 @@ def root_path(*args)
   File.join(ROOT_DIR, *args)
 end
 
-require 'securerandom'
 require 'bundler/setup'
 Bundler::require(:default)
+
+require 'securerandom'
+require './lib/core_ext'
 
 Mongoid.load! root_path('config', 'mongoid.yml')
 

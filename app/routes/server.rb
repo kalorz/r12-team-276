@@ -1,8 +1,9 @@
 class Main
 
+
   # Get login from URL or parameter (/?login=xxx)
   get '/:login?' do
-    return slim(:index, layout: !request.xhr?) unless params[:login]
+    return slim(:index, layout: !request.xhr?) unless params[:login] && !params[:login].blank?
 
     if params[:login].index('.')
       @login, _, @format = params[:login].rpartition('.')

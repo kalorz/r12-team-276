@@ -5,22 +5,44 @@ require root_path('config', 'imgkit.rb')
 class Badge
 
   TEMPLATE_PATH = File.join(Main.settings.views, 'badge.html.erb')
+  LEVEL_RANGES  = {
+    1 => 0..100,
+    2 => 100..10000,
+    3 => 10000..1000000,
+    4 => 1000000..10000000
+  }
 
   attr_accessor :username, :xp
 
   def initialize(user, options={ })
     @user     = user
-    @username = user.username
-    @xp       = user.xp || 0
+    @username = user.login
+    @xp       = user.score || 0
     @options  = options
   end
 
   def level_percentage
-    @user.level_percentage
+    level           = get_level(xp)
+    range           = LEVEL_RANGES[level]
+    range_beginning = range.to_a.first
+    xp / range_beginning
+  end
+
+  def get_level(xp)
+    case xp
+      when LEVEL_RANGES[1] then
+        1
+      when LEVEL_RANGES[2] then
+        2
+      when LEVEL_RANGES[3] then
+        3
+      when LEVEL_RANGES[4] then
+        4
+    end
   end
 
   def level
-    @user.level
+    get_level(@xp)
   end
 
   def get_template

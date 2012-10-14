@@ -12,6 +12,10 @@ class Main
       slim(template, {layout: false}, locals)
     end
 
+    def badge_path_for(login, format='png')
+      "img/badges/#{login}.#{format}"
+    end
+
   end
 
 end

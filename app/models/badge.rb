@@ -17,6 +17,10 @@ class Badge
   end
 
   def level_percentage
+    puts 'asdasdasd'
+    puts next_level_boundary(xp)
+    puts 'hjdlksafakjhfsal'
+    puts prev_level_boundary(xp)
     (xp - prev_level_boundary(xp)) / (next_level_boundary(xp) - prev_level_boundary(xp))
   end
 
@@ -25,11 +29,11 @@ class Badge
   end
 
   def prev_level_boundary(xp)
-    LEVEL_BOUNDARIES.each_cons(2) { |prev, curr| xp > curr or return prev }
+    LEVEL_BOUNDARIES.each_cons(2) { |prev, curr| return prev if xp >= prev and xp < curr  }
   end
 
   def next_level_boundary(xp)
-    LEVEL_BOUNDARIES.each.with_index { |b, idx| xp > b or return b }
+    LEVEL_BOUNDARIES.find { |exp_to_level| xp < exp_to_level }
   end
 
   def level

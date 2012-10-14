@@ -16,6 +16,15 @@ describe Badge do
     }.to_not raise_error(ZeroDivisionError)
   end
 
+  it ' level_percentage return valid value ' do
+    subject.level_percentage.should == -10
+  end
+  it ' level_percentage return valid value ' do
+    subject.user,score = 5432
+    subject.level_percentage.should == -10
+  end
+
+
   it ' should find correct upper level boundary in cornercase ' do
     subject.next_level_boundary(0).should == 100
   end
